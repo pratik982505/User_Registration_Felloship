@@ -36,7 +36,22 @@ public class UserRegistration {
 	    	System.out.println("Valid Last Name: "+ lName);
 	    }
 	}
-	
+        public void email() {
+		System.out.println("Enter Email Id:");
+		String email = Scan.nextLine();
+		
+		Pattern emailPat = Pattern.compile("^([a-z]+[0-9a-z-!#$%+^&*_.]*){3,15}@[a-z]{3,8}[.]*([a-z]{2,4})*.[a-z]{2,4}");
+	    Matcher emailMatch = emailPat.matcher(email);
+	    boolean emailverification = emailMatch.find();
+	    
+	    if (emailverification==false) {
+	    	System.out.println("Invalid Email Id!!");
+	    	email();
+	    }
+	    else {
+	    	System.out.println("Valid Email: "+ email);
+	    }
+	}	
 
 
 
@@ -44,6 +59,7 @@ public class UserRegistration {
 		UserRegistration user = new UserRegistration();
 		user.firstName();
                 user.lastName();	
-  }
+                user.email();  
+   }
 
 }
