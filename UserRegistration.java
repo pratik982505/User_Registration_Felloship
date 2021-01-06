@@ -1,6 +1,5 @@
 import java.util.regex.*;
 import java.util.Scanner;
-
 public class UserRegistration {
 	Scanner Scan = new Scanner(System.in);
     
