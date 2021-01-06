@@ -69,13 +69,29 @@ public class UserRegistration {
 	    }
 	}
 
-
+        public void password() {
+	    System.out.println("Enter Password:(One Letter Capital and minimum 8 characters)");
+	    String password = Scan.nextLine();
+		
+	    Pattern passwordPat = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$");
+	    Matcher passwordMatch = passwordPat.matcher(password);
+	    boolean passwordVerification = passwordMatch.find();
+	    
+	    if (passwordVerification==false) {
+	    	System.out.println("Invalid Password!! Enter a Valid Password");
+	    	password();
+	    }
+	    else {
+	    	System.out.println("Valid Password: **********");
+	    }
+	}
 	public static void main(String[] args) {
 		UserRegistration user = new UserRegistration();
 		user.firstName();
                 user.lastName();	
                 user.email();  
                 user.mobileNumber();   
+                user.password();
 }
 
 }
