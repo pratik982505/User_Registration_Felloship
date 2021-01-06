@@ -52,7 +52,22 @@ public class UserRegistration {
 	    	System.out.println("Valid Email: "+ email);
 	    }
 	}	
-
+       public void mobileNumber() {
+		System.out.println("Enter Mobile Number:(Country Code<space>Mobile Number)");
+		String number = Scan.nextLine();
+		
+		Pattern numberPattern = Pattern.compile("^([+]*[1-9]{1}[-]*)[-0-9]{1,4}[\" \"]([1-9]?[0-9]{9})$");
+	    Matcher numberMatch = numberPattern.matcher(number);
+	    boolean numberVerification = numberMatch.find();
+	    
+	    if (numberVerification==false) {
+	    	System.out.println("Invalid Mobile Number!!");
+	    	email();
+	    }
+	    else {
+	    	System.out.println("Valid Mobile Number: "+ number);
+	    }
+	}
 
 
 	public static void main(String[] args) {
@@ -60,6 +75,7 @@ public class UserRegistration {
 		user.firstName();
                 user.lastName();	
                 user.email();  
-   }
+                user.mobileNumber();   
+}
 
 }
